@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:fifth_practice"
         mc:Ignorable="d"
-        Title="AddToDo" Height="450" Width="400">
+        Title="AddToDo" Height="450" Width="400"
+        Icon="/Assets/icon.png">
+    
     <Grid Background="#FFFDFAF1">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.15*"/>
