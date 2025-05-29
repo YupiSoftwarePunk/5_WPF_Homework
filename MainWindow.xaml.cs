@@ -40,9 +40,18 @@ namespace _5_WPF_Homework
 
         private void UpdateCounters()
         {
-            CounterText.Text = $"{ToDoList.Count}/{ToDoList.Count(t => t.Doing)}";
-            Progress.Maximum = ToDoList.Count;
-            Progress.Value = ToDoList.Count(t => t.Doing);
+            //CounterText.Text = $"{ToDoList.Count}/{ToDoList.Count(t => t.Doing)}";
+            //Progress.Value = ToDoList.Count(t => t.Doing);
+            //Progress.Maximum = ToDoList.Count;
+
+            int totalTasks = ToDoList.Count;
+            int completedTasks = ToDoList.Count(t => t.Doing);
+
+            CounterText.Text = $"{completedTasks}/{totalTasks}";
+
+            Progress.Maximum = totalTasks;
+            Progress.Value = completedTasks;
+
         }
 
         private void CreateToDo(object sender, RoutedEventArgs e)

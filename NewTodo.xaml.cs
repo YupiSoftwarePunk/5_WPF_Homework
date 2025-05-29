@@ -39,6 +39,7 @@ namespace _5_WPF_Homework
                                                 dateToDo.SelectedDate.Value.Month,
                                                 dateToDo.SelectedDate.Value.Day),
                                     descriptionToDo.Text));
+
             this.Close();
         }
     }

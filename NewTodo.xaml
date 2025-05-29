@@ -33,7 +33,7 @@
             <StackPanel Margin="5">
                 <StackPanel>
                     <TextBlock Text="Навзвание:" Margin="0 0 0 5"/>
-                    <TextBox Margin="0 5 0 5" Name="titleToDo"/>
+                    <TextBox Margin="0 5 0 5" x:Name="titleToDo"/>
                 </StackPanel>
                 <StackPanel>
                     <TextBlock Text="Выполнить до:" Margin="0 5 0 5"/>

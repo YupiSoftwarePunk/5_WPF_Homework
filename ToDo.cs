@@ -23,7 +23,7 @@ namespace _5_WPF_Homework
         private string description_;
         private bool doing_;
 
-        public string Name { get { return name_; } }
+        public string Name { get; set; }
         public DateTime Date { get { return date_; } }
         public string Description { get { return description_; } }
         public bool Doing
