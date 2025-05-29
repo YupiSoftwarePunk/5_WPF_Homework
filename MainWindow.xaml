@@ -52,8 +52,16 @@
                                     Click="btnDelete"
                                     VerticalContentAlignment="Center">
 
-                                <!--<Image Source="/delete.png" Width="10" Height="10"/>-->
+                                <!--<Image Source="/delete.png" Width="10" Height="10" Style="{StaticResource DeleteButton}"/>-->
                             </Button>
+
+                            <CheckBox Checked="CheckBox_Cheked"
+                                      Unchecked="CheckBox_Uncheked"
+                                      IsThreeState="False"
+                                      IsChecked="{Binding Doing, UpdateSourceTrigger=PropertyChanged}">
+                            </CheckBox>
+
+
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -89,6 +97,20 @@
             </Button>
 
         </StackPanel>
+
+
+        <ProgressBar Grid.Row="1" Grid.Column="0"
+                     Grid.ColumnSpan="2"
+                     Name="Progress"
+                     VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                     Style="{StaticResource Progessar}"/>
+
+        <TextBlock Grid.Row="2"
+                   Grid.ColumnSpan="2"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Name="CounterText"/>
+
 
     </Grid>
 </Window>

@@ -51,18 +51,56 @@ namespace _5_WPF_Homework
         }
 
 
+        private void CheckBox_Cheked(object sender, RoutedEventArgs e)
+        {
+            if (ToDolist.SelectedItem != null)
+            {
+                UpdateCounters();
+            }
+        }
+
+
+        private void CheckBox_Uncheked(object sender, RoutedEventArgs e)
+        {
+            UpdateCounters();
+        }
+
+
+
+        private void UpdateCounters()
+        {
+            CounterText.Text = $"{todo.Count}/{todo.Count(t => t.Doing)}";
+            Progress.Maximum = todo.Count;
+            Progress.Value = todo.Count(t => t.Doing);
+        }
+
+
+
+
         public class ToDo
         {
-            public string Name { get; set; }
-            public DateTime Date { get; set; }
-            public string Description { get; set; }
+            private string name_;
+            private DateTime date_;
+            private string description_;
+            private bool doing_;
+
+            public string Name { get { return name_; } }
+            public DateTime Date { get { return date_; } }
+            public string Description { get { return description_; } }
+            public bool Doing
+            {
+                get => doing_;
+                set => doing_ = value;
+            }
 
             public ToDo(string name, DateTime date, string description)
             {
-                Name = name;
-                Date = date;
-                Description = description;
+                name_ = name;
+                date_ = date;
+                description_ = description;
+                doing_ = false;
             }
         }
+
     }
 }
