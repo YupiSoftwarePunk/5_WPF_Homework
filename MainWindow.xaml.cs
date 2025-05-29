@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Collections.ObjectModel;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,91 +17,61 @@ namespace _5_WPF_Homework
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<ToDo> todo = new List<ToDo>();
+        public ObservableCollection<ToDo> ToDoList = new ObservableCollection<ToDo>();
+        public int TodoListCount
+        {
+            get => ToDoList.Count;
+        }
+
+        public int ToDoListCountComplited
+        {
+            get => ToDoList.Where(p => p.Doing == true).Count();
+        }
 
         public MainWindow()
         {
             InitializeComponent();
 
-            todo.Add(new ToDo("Дописать проект", new DateTime(2025, 5, 23), "Доделать проект с математическими классами"));
-            ToDolist.ItemsSource = todo;
+            listToDo.ItemsSource = ToDoList;
+
+            ToDoList.CollectionChanged += (s, e) => UpdateCounters();
+            UpdateCounters();
         }
 
-
-        private void btnAdd(object sender, RoutedEventArgs e)
+        private void UpdateCounters()
         {
-            var NewTodo = new NewTodo();
-            NewTodo.Show();
-            NewTodo.Owner = this;
+            CounterText.Text = $"{ToDoList.Count}/{ToDoList.Count(t => t.Doing)}";
+            Progress.Maximum = ToDoList.Count;
+            Progress.Value = ToDoList.Count(t => t.Doing);
         }
 
-
-        private void btnDelete(object sender, RoutedEventArgs e)
+        private void CreateToDo(object sender, RoutedEventArgs e)
         {
-            if (ToDolist.SelectedItem as ToDo == null)
-            {
-                return;
-            }
+            var AddToDo = new NewTodo();
+            AddToDo.Show();
+            AddToDo.Owner = this;
+        }
+
+        private void DeleteToDo(object sender, RoutedEventArgs e)
+        {
+            if (listToDo.SelectedItem as ToDo == null) { return; }
             else
             {
-                todo.Remove((ToDo)ToDolist.SelectedItem);
-
-                ToDolist.ItemsSource = null;
-                ToDolist.ItemsSource = todo;
+                ToDoList.Remove(listToDo.SelectedItem as ToDo);
             }
         }
-
 
         private void CheckBox_Cheked(object sender, RoutedEventArgs e)
         {
-            if (ToDolist.SelectedItem != null)
+            if (listToDo.SelectedItem != null)
             {
                 UpdateCounters();
             }
         }
 
-
         private void CheckBox_Uncheked(object sender, RoutedEventArgs e)
         {
             UpdateCounters();
         }
-
-
-
-        private void UpdateCounters()
-        {
-            CounterText.Text = $"{todo.Count}/{todo.Count(t => t.Doing)}";
-            Progress.Maximum = todo.Count;
-            Progress.Value = todo.Count(t => t.Doing);
-        }
-
-
-
-
-        public class ToDo
-        {
-            private string name_;
-            private DateTime date_;
-            private string description_;
-            private bool doing_;
-
-            public string Name { get { return name_; } }
-            public DateTime Date { get { return date_; } }
-            public string Description { get { return description_; } }
-            public bool Doing
-            {
-                get => doing_;
-                set => doing_ = value;
-            }
-
-            public ToDo(string name, DateTime date, string description)
-            {
-                name_ = name;
-                date_ = date;
-                description_ = description;
-                doing_ = false;
-            }
-        }
-
     }
 }

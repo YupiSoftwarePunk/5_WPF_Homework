@@ -19,54 +19,64 @@
 
         <StackPanel Grid.Column="0"
                     HorizontalAlignment="Center"
-                    VerticalAlignment="Center">
+                    VerticalAlignment="Center"
+                    Grid.ColumnSpan="2">
             <TextBlock Text="Новое дело"
-                   FontSize="26"/>
+                       Style="{StaticResource HeaderStyle}"/>
         </StackPanel>
 
-        <GroupBox Grid.Column="0"
-                  Grid.Row="1"
+        <GroupBox Grid.Row="1"
                   Margin="5"
                   Background="#FDF5DF"
-                  BorderBrush="#dbe4ea"
+                  BorderThickness="0"
                   Name="groupBoxToDo">
-
             <StackPanel Margin="5">
-
                 <StackPanel>
-                    <TextBlock Text="Навзвание:" Margin="5"/>
-                    <TextBox Margin="5" Name="titleToDo"/>
+                    <TextBlock Text="Навзвание:" Margin="0 0 0 5"/>
+                    <TextBox Margin="0 5 0 5" Name="titleToDo"/>
                 </StackPanel>
-
                 <StackPanel>
-                    <TextBlock Text="Выполнить до:" Margin="5"/>
-                    <DatePicker IsDropDownOpen="True" Margin="5"
-                                Name="dateToDo"/>
+                    <TextBlock Text="Выполнить до:" Margin="0 5 0 5"/>
+                    <DatePicker IsDropDownOpen="True" 
+                                Margin="0 5 0 5"
+                                Name="dateToDo" 
+                                BorderBrush="#5EBEC4">
+                        <DatePicker.SelectedDateFormat>
+                            <DatePickerFormat>Long</DatePickerFormat>
+                        </DatePicker.SelectedDateFormat>
+                        <DatePicker.CalendarStyle>
+                            <Style TargetType="Calendar">
+                                <Setter Property="BorderThickness" Value="1.5"/>
+                                <Setter Property="BorderBrush" Value="#5EBEC4"/>
+                                <Setter Property="Background" Value="#FFFDFAF1"/>
+                            </Style>
+                        </DatePicker.CalendarStyle>
+                    </DatePicker>
                 </StackPanel>
-
                 <StackPanel>
-                    <TextBlock Text="Описание:" Margin="5"/>
-                    <TextBox MinLines="5" AcceptsReturn="True"
-                             AcceptsTab="True" Margin="5"
+                    <TextBlock Text="Описание:" Margin="0 5 0 5"/>
+                    <TextBox MinLines="7" 
+                             AcceptsReturn="True"
+                             AcceptsTab="True"
+                             Margin="0 5 0 5"
                              BorderBrush="#5EBEC4"
                              Name="descriptionToDo"
-                             Height="100" 
-                             VerticalScrollBarVisibility="Visible"/>
+                             MaxHeight="100"
+                             VerticalScrollBarVisibility="Auto"/>
                 </StackPanel>
-
             </StackPanel>
         </GroupBox>
 
         <StackPanel Grid.Row="2"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center">
-            
             <Button Content="Сохранить дело"
-                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
                     Background="#5EBEC4"
                     Padding="5"
-                    Click="ToDoSave"/>
+                    Click="SaveToDo"/>
         </StackPanel>
-
     </Grid>
+
 </Window>
