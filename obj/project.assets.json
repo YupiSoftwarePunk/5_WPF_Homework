@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Denis\\Documents\\projects C#\\5_WPF_Homework\\5_WPF_Homework.csproj",
-      "projectName": "5_WPF_Homework",
-      "projectPath": "C:\\Users\\Denis\\Documents\\projects C#\\5_WPF_Homework\\5_WPF_Homework.csproj",
+      "projectUniqueName": "C:\\Users\\Denis\\Documents\\projects C#\\5_WPF_Homework\\fifth_practice.csproj",
+      "projectName": "fifth_practice",
+      "projectPath": "C:\\Users\\Denis\\Documents\\projects C#\\5_WPF_Homework\\fifth_practice.csproj",
       "packagesPath": "C:\\Users\\Denis\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Denis\\Documents\\projects C#\\5_WPF_Homework\\obj\\",
       "projectStyle": "PackageReference",

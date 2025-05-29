@@ -1,7 +1,7 @@
-﻿<Application x:Class="_5_WPF_Homework.App"
+﻿<Application x:Class="fifth_practice.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:_5_WPF_Homework"
+             xmlns:local="clr-namespace:fifth_practice"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -9,6 +9,5 @@
                 <ResourceDictionary Source="Styles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-
     </Application.Resources>
 </Application>

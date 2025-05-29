@@ -1,13 +1,15 @@
-﻿<Window x:Class="_5_WPF_Homework.MainWindow"
+﻿<Window x:Class="fifth_practice.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:_5_WPF_Homework"
+        xmlns:local="clr-namespace:fifth_practice"
         mc:Ignorable="d"
-        Title="Список дел" Height="450" Width="400"
-        ResizeMode="NoResize"
-        Icon="/icon.png">
+        Title="MainWindow" 
+        Height="450" 
+        Width="400"
+        ResizeMode="NoResize">
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.12*"/>
@@ -28,7 +30,7 @@
             Grid.Row="0"
             Style="{StaticResource ButtonHeader}"
             Click="CreateToDo">
-            <Image Source="/add.png"/>
+            <Image Source="/Assets/add.png"/>
         </Button>
 
         <DataGrid Grid.Row="1"
@@ -36,8 +38,8 @@
                   Name="listToDo"
                   Style="{StaticResource DataGridList}">
 
-
-
+            
+            
             <DataGrid.Columns>
                 <DataGridTemplateColumn Width="0.1*">
                     <DataGridTemplateColumn.CellTemplate>
@@ -49,10 +51,8 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Binding="{Binding Path=Name}"     
-                                    Width="*" />
-                
-                <!--тут ошибка наверн вверху-->
+                <DataGridTextColumn Binding="{Binding Path=Name}" 
+                                    Width="*" IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding Path=Date, StringFormat=dd.MM.yyyy}"
                                     Width="0.5*" IsReadOnly="True"/>
                 <DataGridTemplateColumn>
@@ -60,7 +60,7 @@
                         <DataTemplate>
                             <Button Click="DeleteToDo"
                                     Style="{StaticResource DataGridButton}">
-                                <Image Source="delete.png"
+                                <Image Source="/Assets/delete.png"
                                        Style="{StaticResource DeleteButton}"/>
                             </Button>
                         </DataTemplate>
@@ -89,5 +89,4 @@
                    Name="CounterText"/>
 
     </Grid>
-
 </Window>

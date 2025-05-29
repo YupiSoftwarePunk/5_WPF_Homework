@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace _5_WPF_Homework
+namespace fifth_practice
 {
     /// <summary>
     /// Interaction logic for App.xaml
